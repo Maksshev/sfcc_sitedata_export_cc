@@ -1,0 +1,130 @@
+{
+    "step-types": {
+        "script-module-step": [{
+                "@type-id": "custom.Dev.ExportContent",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "module": "int_develop/cartridge/scripts/jobs/ExportContent.js",
+                "description": "Export Content",
+                "function": "exportContent",
+                "parameters": {
+                    "parameter": [
+                        {
+                            "@name": "filePath",
+                            "@type": "string",
+                            "@required": "true",
+                            "description": "Path to content export file"
+                        },
+                      {
+                        "@name": "libraries",
+                        "@type": "string",
+                        "@required": "false",
+                        "description": "Libraries to export"
+                      },
+                      {
+                        "@name": "content",
+                        "@type": "string",
+                        "@required": "false",
+                        "description": "Content to export"
+                      }
+                    ]
+                },
+                "status-codes": {
+                    "status": [{
+                            "@code": "ERROR",
+                            "description": "Used when an error occurred."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when execution was successful."
+                        }
+                    ]
+                }
+            },
+          {
+            "@type-id": "custom.Dev.ExportJobs",
+            "@supports-site-context": "false",
+            "@supports-organization-context": "true",
+            "module": "int_develop/cartridge/scripts/jobs/ExportJobs.js",
+            "description": "Export Jobs",
+            "function": "Process",
+            "parameters": {
+              "parameter": [
+                {
+                  "@name": "filePath",
+                  "@type": "string",
+                  "@required": "true",
+                  "description": "Path to content export file"
+                },
+                {
+                  "@name": "jobs",
+                  "@type": "string",
+                  "@required": "false",
+                  "description": "Jobs to export"
+                }
+              ]
+            },
+            "status-codes": {
+              "status": [{
+                "@code": "ERROR",
+                "description": "Used when an error occurred."
+              },
+                {
+                  "@code": "OK",
+                  "description": "Used when execution was successful."
+                }
+              ]
+            }
+          },
+          {
+            "@type-id": "custom.Dev.ExportServices",
+            "@supports-site-context": "false",
+            "@supports-organization-context": "true",
+            "module": "int_develop/cartridge/scripts/jobs/ExportServices.js",
+            "description": "Export Services",
+            "function": "Process",
+            "parameters": {
+              "parameter": [
+                {
+                  "@name": "filePath",
+                  "@type": "string",
+                  "@required": "true",
+                  "description": "Path to services export file"
+                },
+                {
+                  "@name": "services",
+                  "@type": "string",
+                  "@required": "false",
+                  "description": "Services to export"
+                },
+                {
+                  "@name": "includeProfiles",
+                  "@type": "boolean",
+                  "@required": "false",
+                  "description": "Include service profiles for selected services",
+                  "default-value": "true"
+                },
+                {
+                  "@name": "includeCredentials",
+                  "@type": "boolean",
+                  "@required": "false",
+                  "description": "Include service credentials for selected services",
+                  "default-value": "true"
+                }
+              ]
+            },
+            "status-codes": {
+              "status": [{
+                "@code": "ERROR",
+                "description": "Used when an error occurred."
+              },
+                {
+                  "@code": "OK",
+                  "description": "Used when execution was successful."
+                }
+              ]
+            }
+          }
+        ]
+    }
+}
